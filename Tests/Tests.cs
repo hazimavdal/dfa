@@ -41,7 +41,7 @@ public static class Tests
         foreach (var sample in samples)
         {
             expected = sample.Where(c => c == 'b').Count() <= 4 &&
-                (sample.Where(c => c == 'a').Count()) % 2 == 1;
+                sample.Where(c => c == 'a').Count() % 2 == 1;
 
             actual = Examples.OddMax.Read(sample);
             Debug.Assert(actual == expected);

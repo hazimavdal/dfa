@@ -33,7 +33,7 @@ namespace DFA
         }
 
         // Reads the given string and returns true if it 
-        // it is accepted by the language of this DFA, and
+        // is accepted by the language of this DFA, and
         // false otherwise.
         public bool Read(IEnumerable<TAlphabet> str)
         {
