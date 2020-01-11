@@ -36,7 +36,7 @@ public static class Tests
     {
         bool expected, actual;
 
-        var samples = Examples.OddMax.Σ.ToArray().GetSamples(n: 10000, p: 0.05);
+        var samples = Examples.OddMax.Σ.ToArray().GetSamples(n: 100000, p: 0.05);
 
         foreach (var sample in samples)
         {
