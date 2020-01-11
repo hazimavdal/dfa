@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Diagnostics;
 
 public static class Tests
@@ -29,5 +30,24 @@ public static class Tests
         }
 
         Console.WriteLine("EvenParity passed all the tests.");
+    }
+
+    public static void TestOddMax()
+    {
+        bool expected, actual;
+
+        var samples = Examples.OddMax.Σ.ToArray().GetSamples(n: 10000, p: 0.05);
+
+        foreach (var sample in samples)
+        {
+            expected = sample.Where(c => c == 'b').Count() <= 4 &&
+                (sample.Where(c => c == 'a').Count()) % 2 == 1;
+
+            actual = Examples.OddMax.Read(sample);
+            Debug.Assert(actual == expected);
+        }
+
+
+        Console.WriteLine("OddMax passed all the tests.");
     }
 }

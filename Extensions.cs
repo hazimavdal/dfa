@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public static class Extensions
 {
     const uint INT_SIZE = 32;
+    private static System.Random RandomEngine = new System.Random();
 
     public static List<int> GetBits(this int n)
     {
@@ -28,5 +29,25 @@ public static class Extensions
         }
 
         return ones % 2;
+    }
+
+    public static List<char> GetSample(this char[] symbols, double p = 0.5)
+    {
+        var result = new List<char>();
+        var size = RandomEngine.Next(100);
+
+        for (int i = 0; i < size; i++)
+            result.Add(RandomEngine.NextDouble() > p ? symbols[0] : symbols[1]);
+
+        return result;
+    }
+
+    public static List<char>[] GetSamples(this char[] symbols, int n, double p = 0.5)
+    {
+        var result = new List<char>[n];
+        for (int i = 0; i < n; i++)
+            result[i] = symbols.GetSample(p);
+
+        return result;
     }
 }
