@@ -10,5 +10,6 @@ class Program
         Console.WriteLine("L(A) Acceptance: {0}", dfa.Read(word).ToString());
 
         Tests.TestDivisibleByThree();
+        Tests.TestEvenParity();
     }
 }

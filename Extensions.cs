@@ -16,4 +16,17 @@ public static class Extensions
 
         return result;
     }
+
+    public static int GetParity(this int n)
+    {
+        var ones = 0;
+
+        for (uint i = 0; i < INT_SIZE; i++)
+        {
+            ones += n & 1;
+            n = n >> 1;
+        }
+
+        return ones % 2;
+    }
 }
