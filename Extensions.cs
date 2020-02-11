@@ -42,11 +42,11 @@ public static class Extensions
         return result;
     }
 
-    public static List<char>[] GetSamples(this char[] symbols, int n, double p = 0.5)
+    public static List<List<char>> GetSamples(this char[] symbols, int n, double p = 0.5)
     {
-        var result = new List<char>[n];
+        var result = new List<List<char>>();
         for (int i = 0; i < n; i++)
-            result[i] = symbols.GetSample(p);
+            result.Add(symbols.GetSample(p));
 
         return result;
     }

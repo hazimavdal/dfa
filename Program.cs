@@ -7,5 +7,6 @@ class Program
         Tests.TestDivisibleByThree();
         Tests.TestEvenParity();
         Tests.TestOddMax();
+        Tests.TestTwoOrThreeStar();
     }
 }

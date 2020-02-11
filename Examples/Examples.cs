@@ -3,6 +3,25 @@ using System.Collections.Generic;
 
 public static class Examples
 {
+
+    // This is the minimal DFA for aa+(aaa)*
+    public static DFA<char> TwoOrThreeStar = new DFA<char>()
+    {
+        Q = new HashSet<string> { "q0", "q1", "q2", "q3", "q4", "q5" },
+        Σ = new HashSet<char> { 'a' },
+        δ = new Dictionary<(string, char), string>
+            {
+                {("q0", 'a'), "q1"},
+                {("q1", 'a'), "q2"},
+                {("q2", 'a'), "q3"},
+                {("q3", 'a'), "q5"},
+                {("q4", 'a'), "q3"},
+                {("q5", 'a'), "q4"},
+            },
+        q0 = "q0",
+        F = new HashSet<string> { "q0", "q2", "q3" }
+    };
+
     // This DFA checks if a number is divisible by 3.
     public static DFA<int> DivisibleByThree = new DFA<int>()
     {
