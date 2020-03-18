@@ -69,4 +69,21 @@ public static class Tests
 
         Console.WriteLine("OddMax passed all the tests.");
     }
+
+    public static void TestTernaryLessThan()
+    {
+        bool expected, actual;
+
+        for (int i = 0; i < 100000; i++)
+        {
+            var a = Extensions.RandTernary(10);
+            var b = Extensions.RandTernary(10);    
+            expected = a.TernaryToInt() < b.TernaryToInt();
+
+            actual = Examples.TernaryLessThan.Read((a,b).Pack());
+            Debug.Assert(actual == expected);        
+        }
+
+    }
+
 }

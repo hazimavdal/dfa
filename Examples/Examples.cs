@@ -4,6 +4,39 @@ using System.Collections.Generic;
 public static class Examples
 {
 
+    // Checks if u<v where u and v are integers in least-
+    // significant-digit-first ternary representation.
+    public static DFA<string> TernaryLessThan = new DFA<string>()
+    {
+        Q = new HashSet<string> { "q0", "q1" },
+        Σ = new HashSet<string> { "00", "01", "02", "10", "11", "12", "20", "21", "22"},
+        δ = new Dictionary<(string, string), string>
+            {
+                {("q0", "00"), "q0"},
+                {("q0", "11"), "q0"},
+                {("q0", "22"), "q0"},
+                {("q0", "10"), "q0"},
+                {("q0", "20"), "q0"},
+                {("q0", "21"), "q0"},
+                {("q0", "01"), "q1"},
+                {("q0", "02"), "q1"},
+                {("q0", "12"), "q1"},
+
+                {("q1", "00"), "q1"},
+                {("q1", "11"), "q1"},
+                {("q1", "22"), "q1"},
+                {("q1", "01"), "q1"},
+                {("q1", "02"), "q1"},
+                {("q1", "12"), "q1"},
+                {("q1", "10"), "q0"},
+                {("q1", "20"), "q0"},
+                {("q1", "21"), "q0"},
+            },
+        q0 = "q0",
+        F = new HashSet<string> { "q1" }
+    };
+
+
     // This is the minimal DFA for aa+(aaa)*
     public static DFA<char> TwoOrThreeStar = new DFA<char>()
     {
